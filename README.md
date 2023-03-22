@@ -338,8 +338,24 @@ Ans. db.Employee.find({yearGrad:{$gt:'2015'}, overallExp:{$gt:'1'}})
 ]
 ```
 
-Q.7. Query the collection "Employee" and update the salary of the Employee whose salary is greater than 70000 to 65000.
-Ans. 
+## Q.7. Query the collection "Employee" and update the salary of the Employee whose salary is lesser than 30000 to 30000.
 
-Q.8. Delete all the documents from "Employee" where last company is Y".
-Ans. 
+Ans. `db.Employee.updateMany({salary:{$lt:'30000'}},{$set{salary:'30000'}})`
+
+```
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+```
+
+## Q.8. Delete all the documents from "Employee" where last company is Y".
+
+Ans. `db.Employee.deleteMany({lastCompany:'Y'})`
+
+```
+{ acknowledged: true, deletedCount: 6 }
+```
